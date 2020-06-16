@@ -2,6 +2,38 @@
 
 @tailwind base;
 
+h2, h3, a, p, blockquote, span, ul, ol {
+  @apply font-serif font-thin
+}
+
+h2 {
+  @apply text-2xl mt-5 mb-2
+}
+
+h3 {
+  @apply text-xl mt-3 mb-2
+}
+
+a {
+  @apply bg-blue-100 p-1
+}
+
+blockquote {
+  @apply p-5 mt-5 mb-5 border-l-2 border-blue-400 bg-gray-200 italic
+}
+
+ul {
+  @apply list-square list-inside
+}
+
+ol {
+  @apply list-decimal list-inside
+}
+
+hr {
+  @apply mt-5 mb-2 border-gray-200 border-solid border-2
+}
+
 @tailwind components;
 
 @tailwind utilities;
