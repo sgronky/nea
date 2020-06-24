@@ -10,13 +10,15 @@ export default function Post({
 
   return (
     <Layout>
-      <main class="max-w-4xl mx-auto pt-10 pb-5">
-        <div class="flex flex-wrap overflow-hidden">
-          <h2 class="text-gray-900 text-5xl w-full my-1 font-thin">{frontmatter.title}</h2>
-          <span class="text-sm text-gray-800 block mb-5 uppercase font-thin">{frontmatter.date}</span>
-          <div class="font-thin text-gray-900 tracking-wider leading-loose" dangerouslySetInnerHTML={{ __html: html }} />
+      <article className="max-w-4xl mx-auto pt-10 pb-5">
+        <div className="flex flex-wrap overflow-hidden">
+          <header>
+            <h2 className="text-black text-5xl w-full my-1 font-semibold">{frontmatter.title}</h2>
+            <span className="text-sm text-gray-800 block mb-5 uppercase font-thin">{frontmatter.date}</span>
+          </header>
+          <section className="markdown" dangerouslySetInnerHTML={{ __html: html }} />
         </div>
-      </main>
+      </article>
     </Layout>
   )
 }

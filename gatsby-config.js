@@ -48,5 +48,13 @@ module.exports = {
         // filter: (node, getNode) => node.frontmatter.tags !== "exempt",
       },
     },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-lodash`,
   ],
 }

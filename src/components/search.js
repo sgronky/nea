@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Index } from "elasticlunr"
-import { Link } from "gatsby"
-import { navigate } from '@reach/router'
+import { Index } from "elasticlunr";
+import { Link } from "gatsby";
+import { navigate } from '@reach/router';
 
 class Search extends Component {
   constructor(props) {
@@ -15,30 +15,31 @@ class Search extends Component {
   }
   render() {
     if (this.state.redirect) {
-      //return <Redirect to = { this.state.redirectPath } />
       navigate(this.state.redirectPath);
     }
 
-    const results = this.state.results.length === 0 ? ( <div /> ) : (
-      <div class="bg-gray-100 absolute mt-1 px-2 w-full">
-          {this.state.results.map(page => (
-            <Link to={"/" + page.slug} class="bg-gray-100">
-              <strong class="text-lg px-2 block mt-2">{page.title}</strong>
-              <label class="text-xs px-2 bg-blue-200 rounded-full">{page.tags.join(", ")}</label>
-            </Link>            
-          ))}          
+    const results = this.state.results.length === 0 ? (<div />) : (
+      <div className="bg-white bg-opacity-90 absolute mt-1 pb-5 px-2 w-full">
+        {this.state.results.map(page => (
+          <Link to={"/" + page.slug}>
+            <span className="text-lg px-2 block mt-2">
+              {page.title}
+            </span>
+            {this.tokenizeTags(page.tags)}
+          </Link>
+        ))}
       </div>
     );
 
     return (
-      <div class="w-full bg-gray-100 focus:outline-none focus:shadow-outline relative inline-block">
-        <input type="text" class="w-full px-4 py-3 leading-tight text-sm text-gray-600 bg-gray-100 placeholder-gray-400"
-          placeholder="search"
+      <div className="w-full relative inline-block">
+        <input type="text" className="w-full px-10 py-3 leading-tight text-sm text-black bg-graylight bg-opacity-25 placeholder-gray focus:outline-none focus:shadow-focus-red rounded-sm"
+          placeholder="Search document (type &#34;/&#34; to acquire focus"
           onChange={this.search}
           onKeyDown={this.handleKeyDown}
-          value={this.query} 
-          ref="searchBox"/>
-        { results }
+          value={this.query}
+          ref="searchBox" />
+        {results}
       </div>
     );
   }
@@ -60,25 +61,37 @@ class Search extends Component {
   handleKeyDown = evt => {
     if (evt.key === 'Enter') {
       if (this.state.results.length > 0) {
-        this.setState({ redirectPath : this.state.results[0].slug });
-        this.setState({ redirect : true });
+        this.setState({ redirectPath: this.state.results[0].slug });
+        this.setState({ redirect: true });
       }
     } else if (evt.key === "/") {
       this.refs.searchBox.focus();
       this.refs.searchBox.value = "";
       evt.preventDefault();
     } else if (evt.keyCode === 27) {
+      this.refs.searchBox.value = "";
       this.refs.searchBox.blur();
+      this.setState({ query: ``, results: [] });
     }
   }
 
-   componentDidMount = () => {
-     document.addEventListener("keydown", this.handleKeyDown);
-   }
+  tokenizeTags = tags => {
+    const tagsElements =
+      tags.map(tag =>
+        (
+          <label className="text-xs px-2 mx-1 bg-yellow bg-opacity-50 rounded-full uppercase font-semibold tracking-wide">{tag}</label>
+        )
+      );
+    return tagsElements;
+  }
 
-   componentWillUnmount = () => {
-     document.removeEventListener("keydown", this.handleKeyDown);
-   }
+  componentDidMount = () => {
+    document.addEventListener("keydown", this.handleKeyDown);
+  }
+
+  componentWillUnmount = () => {
+    document.removeEventListener("keydown", this.handleKeyDown);
+  }
 }
 
 

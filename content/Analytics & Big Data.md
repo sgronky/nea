@@ -1,90 +1,90 @@
 ---
-title: "Analytics & Big Data"
-date: "2017-08-21"
+title: "Analytics and Big Data"
+date: "2020-01-20"
 slug: "analytics-and-big-data"
-tags: ['article','cloud']
+tags: ["enterprise-architecture", "notes"]
 ---
 
-## Apache Spark
+##Apache Spark
 __Apache Spark__ is a distributed processing framework and programming model that helps you do machine learning, stream processing, or graph analytics using Amazon EMR clusters. Similar to Apache Hadoop, Spark is an open-source, distributed processing system commonly used for big data workloads. However, Spark has several notable differences from Hadoop MapReduce. Spark has an optimized directed acyclic graph (DAG) execution engine and actively caches data in-memory, which can boost performance, especially for certain algorithms and interactive queries.
 
 Spark natively supports applications written in Scala, Python, and Java. It also includes several tightly integrated libraries for SQL (Spark SQL), machine learning (MLlib), stream processing (Spark Streaming), and graph processing (GraphX). These tools make it easier to leverage the Spark framework for a wide variety of use cases.
 
 You can install Spark on an EMR cluster along with other Hadoop applications, and it can also leverage the EMR file system (EMRFS) to directly access data in Amazon S3. Hive is also integrated with Spark so that you can use a HiveContext object to run Hive scripts using Spark. A Hive context is included in the spark-shell as sqlContext.
 
-## Ganglia
+##Ganglia
 The __Ganglia__ open source project is a scalable, distributed system designed to monitor clusters and grids while minimizing the impact on their performance. When you enable Ganglia on your cluster, you can generate reports and view the performance of the cluster as a whole, as well as inspect the performance of individual node instances. Ganglia is also configured to ingest and visualize Hadoop and Spark metrics. For more information about the Ganglia open-source project, go to [http://ganglia.info/](http://ganglia.info/)
 
 When you view the Ganglia web UI in a browser, you see an overview of the cluster’s performance, with graphs detailing the load, memory usage, CPU utilization, and network traffic of the cluster. Below the cluster statistics are graphs for each individual server in the cluster.
 
-## HBase
+##HBase
 __HBase__ is an open source, non-relational, distributed database developed as part of the Apache Software Foundation's Hadoop project. HBase runs on top of Hadoop Distributed File System (HDFS) to provide non-relational database capabilities for the Hadoop ecosystem. HBase is included with Amazon EMR release version 4.6.0 and later.
 
 HBase works seamlessly with Hadoop, sharing its file system and serving as a direct input and output to the MapReduce framework and execution engine. HBase also integrates with Apache Hive, enabling SQL-like queries over HBase tables, joins with Hive-based tables, and support for Java Database Connectivity (JDBC). For more information about HBase, see Apache HBase and HBase documentation on the Apache website. For an example of how to use HBase with Hive, see the AWS Big Data Blog post Combine NoSQL and Massively Parallel Analytics Using Apache HBase and Apache Hive on Amazon EMR.
 
-## Hive
+##Hive
 __Hive__ is an open-source, data warehouse, and analytic package that runs on top of a Hadoop cluster. Hive scripts use an SQL-like language called Hive QL (query language) that abstracts programming models and supports typical data warehouse interactions. Hive enables you to avoid the complexities of writing Tez jobs based on directed acyclic graphs (DAGs) or MapReduce programs in a lower level computer language, such as Java.
 
 Hive extends the SQL paradigm by including serialization formats. You can also customize query processing by creating table schema that match your data, without touching the data itself. In contrast to SQL (which only supports primitive value types such as dates, numbers, and strings), values in Hive tables are structured elements, such as JSON objects, any user-defined data type, or any function written in Java.
 
-## Hue
+##Hue
 __Hue__ (Hadoop User Experience) is an open-source, web-based, graphical user interface for use with Amazon EMR and Apache Hadoop. Hue groups together several different Hadoop ecosystem projects into a configurable interface. Amazon EMR has also added customizations specific to Hue in Amazon EMR. Hue acts as a front-end for applications that run on your cluster, allowing you to interact with applications using an interface that may be more familiar or user-friendly. The applications in Hue, such as the Hive and Pig editors, replace the need to log in to the cluster to run scripts interactively using each application's respective shell. After a cluster launches, you might interact entirely with applications using Hue or a similar interface.
 
-## Livy
+##Livy
 __Livy__ enables interaction over a REST interface with an EMR cluster running Spark. You can use the REST interface or an RPC client library to submit Spark jobs or snippets of Spark code, retrieve results synchronously or asynchronously, and manage Spark Context. For more information, see the Apache Livy website. Livy is included in Amazon EMR release version 5.9.0 and later.
 
-## Mahout
+##Mahout
 Amazon EMR supports __Apache Mahout__, a machine learning framework for Apache Hadoop. For more information about Mahout, go to http://mahout.apache.org/.
 
 Mahout is a machine learning library with tools for clustering, classification, and several types of recommenders, including tools to calculate most-similar items or build item recommendations for users. Mahout employs the Hadoop framework to distribute calculations across a cluster, and now includes additional work distribution methods, including Spark.
 
 For more information and an example of how to use Mahout with Amazon EMR, see the Building a Recommender with Apache Mahout on Amazon EMR post on the AWS Big Data blog.
 
-## MXNet
+##MXNet
 __Apache MXNet__ is an acceleration library designed for building neural networks and other deep learning applications. MXNet automates common work flows and optimizes numerical computations. MXNet helps you design neural network architectures without having to focus on implementing low-level computations, such as linear algebra operations. MXNet is included with Amazon EMR release version 5.10.0 and later.
 
-## Oozie
+##Oozie
 Use the __Apache Oozie Workflow Scheduler__ to manage and coordinate Hadoop jobs. For more information, see [http://oozie.apache.org/](http://oozie.apache.org/).
 
 The Oozie native web interface is not supported on Amazon EMR. To use a front-end interface for Oozie, try the Hue Oozie application. For more information, see Hue. Oozie is included with Amazon EMR release version 5.0.0 and later.
 
-## Phoenix
+##Phoenix
 __Apache Phoenix__ is used for OLTP and operational analytics, allowing you to use standard SQL queries and JDBC APIs to work with an Apache HBase backing store. For more information, see Phoenix in 15 minutes or less. Phoenix is included in Amazon EMR release version 4.7.0 and later.
 
-## Pig
+##Pig
 __Apache Pig__ is an open-source Apache library that runs on top of Hadoop, providing a scripting language that you can use to transform large data sets without having to write complex code in a lower level computer language like Java. The library takes SQL-like commands written in a language called Pig Latin and converts those commands into Tez jobs based on directed acyclic graphs (DAGs) or MapReduce programs. Pig works with structured and unstructured data in a variety of formats. For more information about Pig, see [http://pig.apache.org/](http://pig.apache.org/).
 
 You can execute Pig commands interactively or in batch mode. To use Pig interactively, create an SSH connection to the master node and submit commands using the Grunt shell. To use Pig in batch mode, write your Pig scripts, upload them to Amazon S3, and submit them as cluster steps. For more information on submitting work to a cluster, see Submit Work to a Cluster in the Amazon EMR Management Guide.
 
-## Presto
+##Presto
 __Presto__ is a fast SQL query engine designed for interactive analytic queries over large datasets from multiple sources. For more information, see the Presto website. Presto is included in Amazon EMR release version 5.0.0 and later. Earlier release versions include Presto as a sandbox application. For more information, see Amazon EMR 4.x Release Versions.
 
 The following table lists the version of Presto included in the latest release of Amazon EMR, along with the components that Amazon EMR installs with Presto.
 
-## Tez
+##Tez
 __Apache Tez__ is a framework for creating a complex directed acyclic graph (DAG) of tasks for processing data. In some cases, it is used as an alternative to Hadoop MapReduce. For example, Pig and Hive workflows can run using Hadoop MapReduce or they can use Tez as an execution engine
 
-## Zeppelin
+##Zeppelin
 Use __Apache Zeppelin__ as a notebook for interactive data exploration. For more information about Zeppelin, see [https://zeppelin.apache.org/](https://zeppelin.apache.org/). Zeppelin is included in Amazon EMR release version 5.0.0 and later. Earlier release versions include Zeppelin as a sandbox application. For more information, see Amazon EMR 4.x Release Versions.
 
 To access the Zeppelin web interface, set up an SSH tunnel to the master node and a proxy connection. For more information, see View Web Interfaces Hosted on EMR Clusters. 
 
-## Sqoop
+##Sqoop
 __Apache Sqoop__ is a tool for transferring data between Amazon S3, Hadoop, HDFS, and RDBMS databases. For more information, see the Apache Sqoop website. Sqoop is included in Amazon EMR release version 5.0.0 and later. Earlier release versions include Sqoop as a sandbox application. For more information, see Amazon EMR 4.x Release Versions.
 
-## Apache Atlas
+##Apache Atlas
 __Apache Atlas__ is the one-stop solution for data governance and metadata management on enterprise Hadoop clusters. Atlas has a scalable and extensible architecture which can plug into many Hadoop components to manage their metadata in a central repository. In this blog, we are going to look on one such data discovery and classification tool i.e Apache Atlas. For further use, we will be using Apache Atlas on Amazon EMR. 
 
-### 1. Centralised Metadata Store
+###1. Centralised Metadata Store
 Atlas provides true visibility in Hadoop. By using the native connector to Hadoop components, Atlas provides technical and operational tracking enriched by business taxonomical metadata. Atlas facilitates easy exchange of metadata by enabling any metadata consumer to share a common metadata store that facilitates interoperability across many metadata producers
 
-### 2. Data Classification
+###2. Data Classification
 Ability to dynamically create classifications — like pii, expires_on, data_quality. Classifications can include attributes — like an expiry_date attribute in EXPIRES_ON classification. Entities can be associated with multiple classifications, enabling easier discovery and security enforcement. Propagation of classifications via lineage — automatically ensures that classifications follow the data as it goes through various processing.
 
-### 3. Data lifecycle Management
+###3. Data lifecycle Management
 It leverages existing investment in Apache Falcon with a focus on provenance, multi-cluster replication, data set retention and eviction, late data handling, and automation.
 
-### 4. Centralised Security
+###4. Centralised Security
 Fine-grained security for metadata access, enabling controls on access to entity instances and operations like add/update/to remove classifications. Integration with Apache Ranger enables authorization/data-masking on data access based on classifications associated with entities in Apache Atlas. Integration with HDP security that enables you to establish global security policies based on data classifications and that leverages Apache Ranger plug-in architecture for security policy enforcement.
 
 
@@ -92,7 +92,7 @@ Fine-grained security for metadata access, enabling controls on access to entity
 
 ---
 
-## Domande tecniche per gli sviluppatori
+##Domande tecniche per gli sviluppatori
 - Che cos'è Spark
 - Che cos'è un driver?
 - Che cos'è YARN? Meglio YARN o Mesos?
@@ -106,7 +106,7 @@ Fine-grained security for metadata access, enabling controls on access to entity
 
 ---
 
-## Big Data Architect
+##Big Data Architect
 The Globals Professional Services Team is looking for a Big Data Architect / Consultant who is interested in:
 Designing enterprise scale, globally distributed, highly available solutions using our Compute, Container, Serverless, Storage, Analytics, Database and Network Services
 Work hands-on with new Services, including AI/Machine Learning, Serverless/Lambda IoT, Analytics (Map Reduce, ETL), Data Warehouse, BI and Security Services to build products and solutions with our Customers
@@ -115,14 +115,14 @@ Deliver on-site technical engagements with partners and customers. This includes
 Engage as part of our Globals Professional Services Community to learn and share you expertise
 We offer a versatile team, an open feedback culture, and a high pace of innovation. Take the chance and join us to Work Hard. Have Fun. Make History.
 
-### Basic Qualifications
+###Basic Qualifications
 3+ years hands on experience in IT implementation or leading IT Projects in Architecture, (Data-)Engineering, or Development
 Demonstrated industry leadership in the fields of database, Big Data, data warehousing or data sciences.
 Deep understanding an implementation experience of database and analytical technologies in the industry including Data Lakes. Stream based Analytics, MPP databases, NoSQL storage, Data Warehouse design, BI reporting and Dashboard development
 Worked in a customer facing (external or internal), consulting role or project organization for global large-scale customers and large scale data driven projects
 Business fluent verbal and written communication skills in English
 
-### Preferred Qualifications
+###Preferred Qualifications
 AWS Certified Solutions Architecture (Associate or Professional), or other specialty
 Experience implementing services and solutions on Customer Projects using AWS Big Data, Analytics, AI /ML or Data Science solutions
 Hands on experience leading large-scale global data warehousing and analytics projects.
@@ -137,16 +137,16 @@ The number of maximum needed executors is computed by adding the total number of
 
 ---
 
-## Big Data Architect Interview
+##Big Data Architect Interview
 >Points: 1-5
 
-### Struttura del colloquio:
+###Struttura del colloquio:
 - Presentazione del candidato
 - Presentazione della struttura, del gruppo
 - Inquadramento del ruolo
 - Domande
 
-### Questions__:  
+###Questions__:  
 1. A company's data needs are constantly changing and improving maintenance and accessibility of data is an ongoing process. Describe a time when you made changes to a company's data management systems and the impact the change made on the company overall.
 [GDC]: 1
 [AS]: 1
@@ -319,42 +319,42 @@ The number of maximum needed executors is computed by adding the total number of
 
 ---
 
-## Giorgio De Caro
+##Giorgio De Caro
 - __Esperienza__: Laurea in informatica (8 anni). Ha lavorato 7 anni in un centro di ricerca di bioinformatica. Ha lavorato poi in consulenza per un anno e mezzo in NTT Data presso Sky. Si è occupato di varie attività, non solo dati. Attualmente in ENI. Nessun esperienza in ambito finance. -> 1
 - __Motivazione__: Non gli piace l'ambiente di ENI e non c'è molta tecnologia. Gli piacerebbe l'ambito tecnologico. Non lo spaventa il fatto di non avere conoscienze in ambito finance. -> 2
 - __Stipendio__: 40K + 3K -> 3 
 - __Use Case__: 2
 - __Questionario tecnico__: 1,6
 
-## Antonio Sannino
+##Antonio Sannino
 - __Esperienza__: Laurea in informatica fatta mentre lavorava. Ha sempre lavorato in Deutsche Bank. E' arrivato in architettura più tardi. Ha fatto prima il project manager. Non una formazione specifica sui dati. Più generale sul disegno delle soluzioni. -> 2
 - __Motivazione__: Fondamentalmente perché si sta perdendo la parte di gestione tecnologica verso CEDACRI. Vorrebbe rimanere sulla parte dati. -> 2
 - __Stipendio__: 58k + 4k -> 1
 - __Use Case__: 2
 - __Questionario tecnico__: 1,8
 
-## Mario Leone
+##Mario Leone
 - __Esperienza__: Laurea in informatica. Esperienza in finanza. Sempre lavorato in HP (DXC). Sostanzialmente lavora in una struttura di prevendita. Difficile fargli cambiare idea. -> 2
 - __Motivazione__: Vorrebbe fare di più l'architetto, ma non accetta di lavorare sul fronte tecnico. Vorrebbe fare più strategia e difficilmente accetta una soluzione proposta -> 1
 - __Stipendio__: 45k-55k -> 2
 - __Use Case__: 2
 - __Questionario tecnico__: 2,4
 
-## Luca Mastrota
+##Luca Mastrota
 - __Esperienza__: Laureato in ingegneria a Torino. Ha lavorato in Vodafone all'inizio. Successivamente in Fastweb. Ha avuto a che fare con la pre-vendita, l'operations e i system integrator. -> 2
 - __Motivazione__: L'abbiamo chiamato noi. -> 1
 - __Stipendio__: 30 + 2k -> 4
 - __Use Case__: 1
 - __Questionario tecnico__: 1,7
 
-## Alessandro Mangone
+##Alessandro Mangone
 - __Esperienza__: Lavora in Data Reply con un'esperienza di 4 anni principalmente su Big Data, sia streaming che batch. -> 3
 - __Motivazione__: E' attratto dal lato sperimentale e tecnologico e vorrebbe continuare a lavorare come data engineer. L'abbiamo chiamato noi ma sembra interessato. -> 2
 - __Stipendio__: 39k + 5k, 7 livello Metalmeccanico -> 3
 - __Use Case__: 3
 - __Questionario tecnico__: 3,0
 
-## Simone Battaglia
+##Simone Battaglia
 - __Esperienza__: Lavora in Mediaset in una sezione di Analytics all'interno del team. Ha lavorato in passato in consulenza. Non ha grande esperienza nell'ambito finanziario. Ha lavorato proprio alla definizione di un team cloud e dell'infrastruttura relativa. -> 3
 - __Motivazione__: Si trova molto bene in Mediaset. Gli piacerebbe fare prima a livello di viaggio. Vorrebbe continuare a lavorare sul fronte tecnico, specialmente su tecnologie Big data. Vorrebbe un incremento di stipendio. -> 3,5
 - __Stipendio__: 65k + Quadro + piano di incremento 10% annuo -> 2
@@ -362,7 +362,7 @@ The number of maximum needed executors is computed by adding the total number of
 - __Questionario tecnico__: 3,1
 - __Generali-ness__: 3
 
-## Shoaib Patel
+##Shoaib Patel
 - __Esperienza__: Molto buona. Ha lavorato in ambiti differenti ed è stato esposto a molte tecnologie diverse. Non ha una laurea specialistica ed è sostanzialmente tecnico. Non ha esperienza di architetto e di relazione con il business. -> 3 
 - __Motivazione__: Molto motivato. Viene dalla consulenza ed è relativamente giovane. Intraprendere una carriera su una realtà aziendale su un ambito finanziario non lo spaventa, ma potrebbe avere un certo impatto. Inoltre, essendo indiano, potrebbe decidere di tornare a casa fra qualche anno nonostante abbia assicurato che è qui in Italia per restare. Non parla italiano ma sta imparando. -> 2,5
 - __Stipendio__: 35k -> 4
@@ -370,7 +370,7 @@ The number of maximum needed executors is computed by adding the total number of
 - __Questionario tecnico__: 3,2 
 - - __Generali-ness__: 2  
 
-## Federico Migliavacca
+##Federico Migliavacca
 - __Esperienza__: Lavora da sempre in ambito cloud. Viene da Vodafone. Buona esperienza AWS. Poca esperienza su ambito dati più tradizionale (datawarehouse, dbms, ecc...) -> 3
 - __Motivazione__: L'abbiamo chiamato noi. Vorrebbe evolvere il proprio ruolo diventando architetto. Ha altre proposte. -> 3
 - __Stipendio__: 43k, 6 tlc -> 3
@@ -380,7 +380,7 @@ The number of maximum needed executors is computed by adding the total number of
 
 ---
 
-## Altri profili potenziali
+##Altri profili potenziali
 Federico Migliavacca 
 Senior Big Data Engineer @ Vodafone
 https://www.linkedin.com/in/federicomigliavacca/
@@ -431,7 +431,7 @@ https://www.linkedin.com/in/alessandro-negrini-102883a5/
 
 ---
 
-## DataOps Principles
+##DataOps Principles
 1. Continually satisfy your customer:
 Our highest priority is to satisfy the customer through the early and continuous delivery of valuable analytic insights from a couple of minutes to weeks.
 
@@ -488,11 +488,11 @@ We should strive to minimize the time and effort to turn a customer need into an
 
 ---
 
-## Creating a Data-driven Enterprise with DataOps
+##Creating a Data-driven Enterprise with DataOps
 Being a data-driven company requires simultaneously undertaking three interdependent initiatives:
 
 - __Identify, combine, and manage multiple sources of data__. You might already have all the data you need. Or you might need to be creative to find other sources for it. Either way, you need to eliminate silos of data while constantly seeking out new sources to inform your decision-making. And it’s critical to remember that when mining data for insights, demanding data from different and independent sources leads to much better decisions.
 - __Build advanced analytics models for predicting and optimizing outcomes__. The most effective approach is to identify a business opportunity and determine how the model can achieve it. In other words, you don’t start with the data—at least at first—but with a problem.
 - __Transform the organization and culture of the company so that data actually produces better business decisions__. Many big data initiatives fail because they aren’t in sync with a company’s day-to-day processes and decision-making habits. Data professionals must understand what decisions their business users make, and give users the tools they need to make those decisions.
 
-> __DataOps__ is a new way of managing data that promotes communication between, and integration of, formerly siloed data, teams, and systems. It takes advantage of process change, organizational realignment, and technology to facilitate relationships between everyone who handles data: developers, data engineers, data scientists, analysts, and business users. DataOps closely connects the people who collect and prepare the data, those who analyze the data, and those who put the findings from those analyses to good business use.
+__DataOps__ is a new way of managing data that promotes communication between, and integration of, formerly siloed data, teams, and systems. It takes advantage of process change, organizational realignment, and technology to facilitate relationships between everyone who handles data: developers, data engineers, data scientists, analysts, and business users. DataOps closely connects the people who collect and prepare the data, those who analyze the data, and those who put the findings from those analyses to good business use.

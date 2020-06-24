@@ -1,8 +1,8 @@
 ---
-title: "Notes: Java"
-date: "2020-05-02"
+title: "Java 8"
+date: "2018-12-03"
 slug: "java-8"
-tags: ['article','tech']
+tags: ["tech", "notes"]
 ---
 
 ## Default methods for Interface
@@ -89,11 +89,12 @@ We create a reference to the Person constructor via ```Person::new```. The Java 
 
 
 ## Built-in Functional Interfaces
+
 The JDK 1.8 API contains many built-in functional interfaces. Some of them are well known from older versions of Java like __Comparator__ or __Runnable__. Those existing interfaces are extended to enable Lambda support via the ```@FunctionalInterface``` annotation.
 
 But the Java 8 API is also full of new functional interfaces to make your life easier. Some of those new interfaces are well known from the Google Guava library. Even if you're familiar with this library you should keep a close eye on how those interfaces are extended by some useful method extensions.
 
-### Predicates
+###Predicates
 Predicates are boolean-valued functions of one argument. The interface contains various default methods for composing predicates to complex logical terms (and, or, negate)
 ```java
 Predicate<String> predicate = (s) -> s.length() > 0;
@@ -145,6 +146,7 @@ optional.orElse("fallback");    // "bam"
 
 optional.ifPresent((s) -> System.out.println(s.charAt(0)));     // "b"
 ```
+
 
 ## Streams
 

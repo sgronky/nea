@@ -1,0 +1,47 @@
+.markdown {
+  @apply font-sans whitespace-normal
+}
+
+.markdown > h2, .markdown > h3 {
+  @apply font-semibold tracking-tight leading-loose mt-5
+}
+
+.markdown > h2 {
+  @apply text-3xl 
+}
+
+.markdown > h3 {
+  @apply text-2xl
+}
+
+.markdown p, .markdown ul, .markdown ol {
+  @apply text-base tracking-wide leading-loose font-thin
+}
+
+.markdown a {
+  @apply bg-yellow bg-opacity-25 p-1
+}
+
+.markdown > blockquote {
+  @apply p-5 mt-5 mb-5 border-l-2 border-red border-opacity-75 bg-gray bg-opacity-10 italic
+}
+
+.markdown ul {
+  @apply list-square list-inside
+}
+
+.markdown ol {
+  @apply list-decimal list-inside
+}
+
+.markdown > hr {
+  @apply mt-10 mb-2 border-t h-px border-black
+}
+
+.markdown > table {
+  @apply table-auto border-collapse my-8 whitespace-normal w-10/12 border
+}
+
+.markdown th, .markdown td {
+  @apply border px-4 py-2 max-w-xl
+}
