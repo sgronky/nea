@@ -2,28 +2,36 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import { Link, graphql } from "gatsby"
+import { Helmet } from "react-helmet"
+import Layout from "../components/layout"
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`
+    } tagged with "${tag}"`
 
   return (
-    <div>
-      <h2>{tagHeader}</h2>
-      <ul>
-        {edges.map(({ node }) => {
-          const { slug, title } = node.frontmatter
-          return (
-            <li key={ slug }>
-              <Link to={ slug }>{ title }</Link>
-            </li>
-          )
-        })}
-      </ul>
-      <Link to="/tags">All tags</Link>
+    <div className="">
+      <Helmet title="Categories" />
+      <Layout>
+        <div className="max-w-4xl mx-auto pt-10 pb-5 z-50">
+          <h2 className="text-black text-2xl w-full mb-10 font-semibold">{tagHeader}</h2>
+          <ul className="list-none text-base tracking-wide leading-loose font-thin">
+            {edges.map(({ node }) => {
+              const { slug, title, date } = node.frontmatter
+              return (
+                <li className="flex flex-col mt-2 text-black" key={slug}>
+                  <Link className="text-black text-lg tracking-wide font-semibold uppercase" to={slug}>{title}</Link>
+                  <span className="text-xs uppercase font-thin -mt-2">Created on {date}</span>
+                </li>
+              )
+            })}
+          </ul>
+          <Link className="mt-5 block font-semibold tracking-wide" to="/tags">&gt; All tags</Link>
+        </div>
+      </Layout>
     </div>
   )
 }
@@ -66,6 +74,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             slug
+            date(formatString: "MMMM DD, YYYY")
           }
         }
       }

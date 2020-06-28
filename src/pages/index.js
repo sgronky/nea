@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import "../global.css"
 import Rocket from "../../static/rocket.png"
+import { Link } from "gatsby"
 
 export default function Home() {
   return (
@@ -16,6 +17,9 @@ export default function Home() {
                   Cloud and <mark className="bg-yellow px-2 text-white">DevOps</mark>
               </h2>
             </div>
+          </div>
+          <div className="flex flex-row justify-center">
+            <Link className="text-xl tracking-tight mt-5 font-thin z-50" to="/tags">&gt; All Categories</Link>
           </div>
           <div className="flex flex-row justify-center -mt-32 overflow-hidden">
             <img className="max-w-4xl" src={Rocket} alt="Rocket" />
