@@ -12,7 +12,7 @@ html {
 
 @responsive {
   .bg_gradient_gray {
-    background-image: linear-gradient(180deg, #ffffff 60%, #dddddd 100%)
+    background-image: linear-gradient(180deg, #ffffff 80%, #dddddd 100%)
   }
 
   .bg_gradient_colored {
