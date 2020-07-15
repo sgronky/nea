@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import Author from "../../static/author.jpg"
+import Author from "../../static/author.jpeg"
 import { Link } from "gatsby"
 import kebabCase from "lodash/kebabCase"
 

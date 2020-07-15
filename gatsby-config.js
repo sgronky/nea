@@ -56,5 +56,19 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-lodash`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Notes of an Enterprise Architect`,
+        short_name: `NEA`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#E0301E`,
+        display: `standalone`,
+        icon: `static/icon.png`,
+        cache_busting_mode: `none`,
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 }
