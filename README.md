@@ -1,4 +1,4 @@
-<img src="./static/rocket.png" alt="Rocker" />
+<img src="./static/logo.png" alt="Logo" />
 
 # Notes of an Enterprise Architect
 
