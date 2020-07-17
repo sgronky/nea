@@ -1,4 +1,4 @@
-<img width="50px" src="./static/logo.png" alt="Logo" />
+<img width="200px" src="./static/logo.png" alt="Logo" />
 
 # Notes of an Enterprise Architect
 
