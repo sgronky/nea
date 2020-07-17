@@ -1,3 +1,5 @@
+<img src="./static/rocket.png" alt="Rocker" />
+
 # Notes of an Enterprise Architect
 
 Just a simple example of a __personal blog website__ to store and read personal notes, done using [Gatsby](https://www.gatsbyjs.org/) as a site generator. You can copy markdown files directly in the `content` folder and, as a result of a static build, the contents are rendered as pages that can be read and navigated through a content page. To easily index the files, a searchbox is also added, with a built-in search functionalities that look for specific front-matter metadata inside the files.
