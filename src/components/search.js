@@ -33,8 +33,11 @@ class Search extends Component {
 
     return (
       <div className="w-full relative inline-block">
-        <input type="text" className="w-full px-10 py-3 leading-tight text-sm text-black bg-graylight bg-opacity-25 placeholder-gray focus:outline-none focus:shadow-focus-red rounded-sm"
-          placeholder="Search document (type &#34;/&#34; to acquire focus"
+        <div className="pointer-events-none absolute inset-x-0 py-2 flex items-center px-3 text-graylight">
+          <svg className="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/></svg>
+        </div>
+        <input type="text" className="w-full px-12 py-3 leading-tight text-sm text-black bg-graylight bg-opacity-25 placeholder-gray focus:outline-none focus:shadow-focus-red rounded-sm"
+          placeholder="Search document (type &#34;/&#34; to acquire focus)"
           onChange={this.search}
           onKeyDown={this.handleKeyDown}
           value={this.query}
